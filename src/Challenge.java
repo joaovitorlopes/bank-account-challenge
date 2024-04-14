@@ -24,6 +24,32 @@ public class Challenge {
         while (option != 4) {
             System.out.println(menuOption);
             option = reading.nextInt();
+
+            if (option == 1) {
+                System.out.printf("Current Balance: R$%.2f%n", balance);
+            } else if (option == 2) {
+                System.out.println("Enter how much do you want to WITHDRAW:");
+                double withdraw = reading.nextDouble();
+                if (withdraw > balance) {
+                    System.out.printf("Your current balance is lower than R$%.2f%n",withdraw);
+                } else {
+                    balance -= withdraw;
+                    System.out.printf("Withdraw made successfully, Current Balance: R$%.2f%n", balance);
+                }
+            } else if (option == 3) {
+                System.out.println("Enter how much do you want to DEPOSIT:");
+                double deposit = reading.nextDouble();
+                if (deposit > 0) {
+                    balance += deposit;
+                    System.out.printf("Deposit made successfully, Current Balance: R$%.2f%n", balance);
+                } else {
+                    System.out.println("Invalid Entry");
+                }
+            } else if (option == 4){
+                System.out.println("Goodbye!");
+            } else {
+                System.out.println("Invalid Entry");
+            }
         }
     }
 }
